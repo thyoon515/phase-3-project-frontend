@@ -8,12 +8,19 @@ import ListOfDealerships from "./components/lists/ListOfDealerships";
 function App() {
 
   const [dealership, setdealership] = useState([]);
+  const [car, setCar] = useState([]);
 
   useEffect(() => {
     fetch("http://localhost:9292/dealerships")
       .then((r) => r.json())
       .then((dealership) => setdealership(dealership))
   }, [])
+
+  useEffect(() => {
+    fetch("http://localhost:9292/cars")
+      .then((r) => r.json())
+      .then((car) => setCar(car))
+  })
   
   
   return (
@@ -21,7 +28,7 @@ function App() {
       <NavBar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/cars" element={<ListOfUsedCars />} />
+        <Route path="/cars" element={<ListOfUsedCars car={car}/>} />
         <Route path="/dealerships" element={<ListOfDealerships dealership={dealership} />} />
       </Routes>
     </Router>
