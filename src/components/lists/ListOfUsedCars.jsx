@@ -1,8 +1,10 @@
 import React from 'react'
 
 const ListOfUsedCars = () => {
+
+
   return (
-    <div>ListOfUsedCars</div>
+    <div>List of Used Cars</div>
   )
 }
 
