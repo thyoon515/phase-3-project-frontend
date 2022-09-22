@@ -22,7 +22,7 @@ const NavBar = () => {
           >
           </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            BuyUsedCar
+            Car4U
           </Typography>
           <Button color="inherit" component={ Link } to="/">Home</Button>
           <Button color="inherit" component={ Link } to="/cars">Cars</Button>
