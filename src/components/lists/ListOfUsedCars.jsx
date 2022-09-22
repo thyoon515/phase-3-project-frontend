@@ -4,7 +4,7 @@ const ListOfUsedCars = ({car}) => {
 
   const displayCars = car.map(car => {
     return(
-      <h3 key={car.id}>Make: {car.make}</h3>
+      <h3 key={car.id}>Make / Model: {car.make_and_model}</h3>
     )
   })
   return (
