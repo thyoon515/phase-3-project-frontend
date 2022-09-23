@@ -7,20 +7,25 @@ import ListOfDealerships from "./components/lists/ListOfDealerships";
 
 function App() {
 
-  const [dealership, setdealership] = useState([]);
-  const [car, setCar] = useState([]);
+  const [dealerships, setdealership] = useState([]);
+  const [cars, setCar] = useState([]);
 
   useEffect(() => {
     fetch("http://localhost:9292/dealerships")
       .then((r) => r.json())
-      .then((dealership) => setdealership(dealership))
+      .then((dealerships) => setdealership(dealerships))
   }, [])
 
   useEffect(() => {
     fetch("http://localhost:9292/cars")
       .then((r) => r.json())
-      .then((car) => setCar(car))
+      .then((cars) => setCar(cars))
   })
+
+  const handleSoldCar = (soldCar) => {
+    const updatedListOfCars = cars.filter((cars) => cars.id !== soldCar.id);
+    setCar(updatedListOfCars)
+  }
   
   
   return (
@@ -28,8 +33,8 @@ function App() {
       <NavBar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/cars" element={<ListOfUsedCars car={car}/>} />
-        <Route path="/dealerships" element={<ListOfDealerships dealership={dealership} />} />
+        <Route path="/cars" element={<ListOfUsedCars cars={cars} handleSoldCar={handleSoldCar} />} />
+        <Route path="/dealerships" element={<ListOfDealerships dealerships={dealerships} />} />
       </Routes>
     </Router>
       

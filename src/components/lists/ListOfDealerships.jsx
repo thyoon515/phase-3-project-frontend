@@ -5,9 +5,9 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
-const ListOfDealerships = ({dealership}) => {
+const ListOfDealerships = ({dealerships}) => {
   
-  const displayDealership = dealership.map(dealership => {
+  const displayDealership = dealerships.map(dealership => {
     return(
     <div>
       <Accordion>

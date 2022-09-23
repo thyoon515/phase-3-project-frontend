@@ -5,9 +5,18 @@ import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
-const ListOfUsedCars = ({car}) => {
+const ListOfUsedCars = ({cars, handleSoldCar}) => {
 
-  const displayCars = car.map(car => {
+  const displayCars = cars.map(car => {
+
+    const handleSold = () => {
+      fetch(`http://localhost:9292/cars/${car.id}`, {
+        method: "DELETE",
+      })
+        .then((r) => r.json())
+        .then((soldCar) => handleSoldCar(soldCar))
+    }
+
     return(
     <Card sx={{ minWidth: 275 }}>
       <CardContent>
@@ -26,6 +35,7 @@ const ListOfUsedCars = ({car}) => {
       </CardContent>
       <CardActions>
         <Button size="small">Contact Dealership</Button>
+        <Button size="small" onClick={handleSold}>Sold</Button>
       </CardActions>
     </Card>
     )
