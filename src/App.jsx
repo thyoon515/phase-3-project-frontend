@@ -23,8 +23,8 @@ function App() {
       .then((carsData) => setCars(carsData))
   }, [])
 
-  const handleSoldCar = (soldCar) => {
-    const updatedListOfCars = cars.filter((car) => car.id !== soldCar.id);
+  const handleDeleteCar = (deleteCar) => {
+    const updatedListOfCars = cars.filter((car) => car.id !== deleteCar.id);
     setCars(updatedListOfCars)
   }
   
@@ -33,7 +33,7 @@ function App() {
       <NavBar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/cars" element={<ListOfUsedCars cars={cars} handleSoldCar={handleSoldCar} />} />
+        <Route path="/cars" element={<ListOfUsedCars cars={cars} handleDeleteCar={handleDeleteCar} />} />
         <Route path="/dealerships" element={<ListOfDealerships dealerships={dealerships} />} />
         <Route path="/addcar" element={<AddCar />} />
       </Routes>

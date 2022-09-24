@@ -8,16 +8,16 @@ import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 
 
-const ListOfUsedCars = ({cars, handleSoldCar}) => {
+const ListOfUsedCars = ({cars, handleDeleteCar}) => {
 
   const displayCars = cars.map(car => {
 
-    const handleSold = () => {
+    const handleDelete = () => {
       fetch(`http://localhost:9292/cars/${car.id}`, {
         method: "DELETE",
       })
         .then((r) => r.json())
-        .then((soldCar) => handleSoldCar(soldCar))
+        .then((deleteCar) => handleDeleteCar(deleteCar))
     }
 
     return(
@@ -40,7 +40,7 @@ const ListOfUsedCars = ({cars, handleSoldCar}) => {
           </CardContent>
           <CardActions>
             <Button size="small">Contact Dealership</Button>
-            <Button size="small" onClick={handleSold}>Sold</Button>
+            <Button size="small" onClick={handleDelete}>Remove Car</Button>
           </CardActions>
         </Card>
       </Box>
