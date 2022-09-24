@@ -28,7 +28,6 @@ function App() {
     setCars(updatedListOfCars)
   }
   
-  
   return (
     <Router>
       <NavBar />
