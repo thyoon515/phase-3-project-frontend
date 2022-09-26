@@ -11,6 +11,7 @@ function App() {
 
   const [dealerships, setdealerships] = useState([]);
   const [cars, setCars] = useState([]);
+  const [editCar, setEditCar] = useState([]);
 
   useEffect(() => {
     fetch("http://localhost:9292/dealerships")
@@ -34,10 +35,10 @@ function App() {
       <NavBar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/cars" element={<ListOfUsedCars cars={cars} handleDeleteCar={handleDeleteCar} dealerships={dealerships} />} />
+        <Route path="/cars" element={<ListOfUsedCars cars={cars} handleDeleteCar={handleDeleteCar} setEditCar={setEditCar}/>} />
         <Route path="/dealerships" element={<ListOfDealerships dealerships={dealerships} />} />
         <Route path="/addCar" element={<AddCar />} />
-        <Route path="/editCar" element={<EditCar />} />
+        <Route path="/editCar" element={<EditCar editCar={editCar}/>} />
         
       </Routes>
     </Router>

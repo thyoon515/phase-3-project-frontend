@@ -24,10 +24,6 @@ const AddCar = () => {
   // eslint-disable-next-line
   const [addCarData, setAddCarData] = useState([]);
 
-  const handleChangeSelect = (event) => {
-    setSelectDealership(event.target.value);
-  };
-
   const handleSubmit = (e) => {
     e.preventDefault();
     fetch("http://localhost:9292/cars", {
@@ -56,6 +52,7 @@ const AddCar = () => {
     setPrice("");
     setSelectDealership("");
   }
+  
 
   const handleChangeMakeModel = (e) => {
     setMakeModel(e.target.value);
@@ -76,6 +73,10 @@ const AddCar = () => {
   const handleChangePrice = (e) => {
     setPrice(e.target.value);
   }
+
+  const handleChangeSelect = (event) => {
+    setSelectDealership(event.target.value);
+  };
 
   return ( 
     <form onSubmit={handleSubmit}>

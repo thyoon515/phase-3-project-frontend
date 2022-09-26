@@ -9,7 +9,7 @@ import Container from '@mui/material/Container';
 import { useNavigate } from 'react-router-dom';
 
 
-const ListOfUsedCars = ({cars, handleDeleteCar, dealerships}) => {
+const ListOfUsedCars = ({cars, handleDeleteCar, setEditCar}) => {
 
   const navigate = useNavigate();
 
@@ -25,8 +25,12 @@ const ListOfUsedCars = ({cars, handleDeleteCar, dealerships}) => {
 
     const handleEditSubmit = (e) => {
       e.preventDefault();
-      console.log(e.target)
       navigate("/editCar");
+    }
+
+    const handleClickEditCar = (e) => { 
+      setEditCar(car)
+      console.log(car)
     }
 
     return(
@@ -52,7 +56,7 @@ const ListOfUsedCars = ({cars, handleDeleteCar, dealerships}) => {
               </Typography>
             </CardContent>
             <CardActions>
-              <Button size="small" type="submit">Edit</Button>
+              <Button size="small" type="submit" onClick={handleClickEditCar}>Edit</Button>
               <Button size="small" onClick={handleDelete}>Remove Car</Button>
             </CardActions>
           </Card>
