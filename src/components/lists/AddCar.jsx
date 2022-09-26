@@ -8,9 +8,12 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+import { useNavigate } from 'react-router-dom';
 
 
 const AddCar = () => {
+
+  const navigate = useNavigate();
 
   const [selectDealership, setSelectDealership] = useState('');
   const [makeModel, setMakeModel] = useState('');
@@ -41,24 +44,16 @@ const AddCar = () => {
       }),
     })
       .then((r) => r.json())
-      .then((postNewCar) => setAddCarData(postNewCar))
-      
-    // const formData = {
-    //   makeModel: makeModel,
-    //   color: color,
-    //   year: year,
-    //   mileage: mileage,
-    //   price: price,
-    //   selectDealership: selectDealership
-    // };
-    // const dataArray = [...addCarData, formData];
-    // setAddCarData(dataArray);
-    // setMakeModel("");
-    // setColor("");
-    // setYear("");
-    // setMileage("");
-    // setPrice("");
-    // setSelectDealership("");
+      .then((postNewCar) =>{
+        setAddCarData(postNewCar)
+        navigate('/cars')
+      })
+    setMakeModel("");
+    setColor("");
+    setYear("");
+    setMileage("");
+    setPrice("");
+    setSelectDealership("");
   }
 
   const handleChangeMakeModel = (e) => {
