@@ -39,7 +39,7 @@ const ListOfUsedCars = ({cars, handleDeleteCar}) => {
             </Typography>
           </CardContent>
           <CardActions>
-            <Button size="small">Contact Dealership</Button>
+            <Button size="small">Edit</Button>
             <Button size="small" onClick={handleDelete}>Remove Car</Button>
           </CardActions>
         </Card>

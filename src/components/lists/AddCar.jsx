@@ -21,29 +21,44 @@ const AddCar = () => {
   const [addCarData, setAddCarData] = useState([]);
 
   const handleChangeSelect = (event) => {
-    console.log(event.target.value)
     setSelectDealership(event.target.value);
-    
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const formData = {
-      makeModel: makeModel,
-      color: color,
-      year: year,
-      mileage: mileage,
-      price: price,
-      selectDealership: selectDealership
-    };
-    const dataArray = [...addCarData, formData];
-    setAddCarData(dataArray);
-    setMakeModel("");
-    setColor("");
-    setYear("");
-    setMileage("");
-    setPrice("");
-    setSelectDealership("");
+    fetch("http://localhost:9292/cars", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        make_and_model: makeModel,
+        color: color,
+        year: year,
+        mileage: mileage,
+        price: price,
+        dealership_id: selectDealership,
+      }),
+    })
+      .then((r) => r.json())
+      .then((postNewCar) => setAddCarData(postNewCar))
+      
+    // const formData = {
+    //   makeModel: makeModel,
+    //   color: color,
+    //   year: year,
+    //   mileage: mileage,
+    //   price: price,
+    //   selectDealership: selectDealership
+    // };
+    // const dataArray = [...addCarData, formData];
+    // setAddCarData(dataArray);
+    // setMakeModel("");
+    // setColor("");
+    // setYear("");
+    // setMileage("");
+    // setPrice("");
+    // setSelectDealership("");
   }
 
   const handleChangeMakeModel = (e) => {
@@ -65,8 +80,8 @@ const AddCar = () => {
   const handleChangePrice = (e) => {
     setPrice(e.target.value);
   }
-
   console.log(addCarData)
+
   return ( 
     <form onSubmit={handleSubmit}>
       <Container maxWidth="sm">
@@ -79,13 +94,13 @@ const AddCar = () => {
               <TextField onChange={handleChangeColor} value={color} label="Color" />
             </Grid>
             <Grid item xs={4}>
-              <TextField onChange={handleChangeYear} value={year} label="Year" />
+              <TextField type="number" onChange={handleChangeYear} value={year} label="Year" />
             </Grid>
             <Grid item xs={12}>
-              <TextField onChange={handleChangeMileage} value={mileage} label="Mileage" />
+              <TextField type="number" onChange={handleChangeMileage} value={mileage} label="Mileage" />
             </Grid>
             <Grid item xs={12}>
-              <TextField onChange={handleChangePrice} value={price} label="Price" />
+              <TextField type="number" onChange={handleChangePrice} value={price} label="Price" />
             </Grid>
             <Grid item xs={12}>
               <FormControl fullWidth>
@@ -103,10 +118,9 @@ const AddCar = () => {
               </FormControl>
             </Grid>
             <Grid item xs={12}>
-              <Button variant="contained">Add Car</Button>
+              <Button type="submit" variant="contained">Add Car</Button>
             </Grid>
           </Grid>
-          
         </Box>
       </Container>
     </form>
