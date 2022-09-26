@@ -20,7 +20,7 @@ const ListOfDealerships = ({dealerships}) => {
               aria-controls="panel1a-content"
               id="panel1a-header"
             >
-              <Typography key={dealership.id}>{dealership.name} / 🤙call for more details : {dealership.contact} or visit us ⬇️</Typography>
+              <Typography key={dealership.id}>Dealership ID: {dealership.id} / {dealership.name} / 🤙call for more details : {dealership.contact} or visit us ⬇️</Typography>
             </AccordionSummary>
             <AccordionDetails>
               <Typography>

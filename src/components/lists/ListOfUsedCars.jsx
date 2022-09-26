@@ -9,7 +9,7 @@ import Container from '@mui/material/Container';
 import { useNavigate } from 'react-router-dom';
 
 
-const ListOfUsedCars = ({cars, handleDeleteCar}) => {
+const ListOfUsedCars = ({cars, handleDeleteCar, dealerships}) => {
 
   const navigate = useNavigate();
 
@@ -32,7 +32,7 @@ const ListOfUsedCars = ({cars, handleDeleteCar}) => {
     return(
     <form onSubmit={handleEditSubmit}>
       <Container maxWidth="sm">
-        <Box sx={{ bgcolor: '#cfe8fc', height: '20vh', m: 4}}>
+        <Box sx={{ bgcolor: '#cfe8fc', height: '25vh', m: 4}}>
           <Card sx={{ minWidth: 275 }}>
             <CardContent>
               <Typography variant="h5" component="div" key={car.id}>
@@ -46,6 +46,9 @@ const ListOfUsedCars = ({cars, handleDeleteCar}) => {
               </Typography>
               <Typography variant="body2">
                 ${car.price}
+              </Typography>
+              <Typography variant="body2">
+                Dealership ID: {car.dealership_id}
               </Typography>
             </CardContent>
             <CardActions>
