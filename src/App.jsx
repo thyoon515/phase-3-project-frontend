@@ -5,6 +5,7 @@ import Home from "./components/static/Home";
 import ListOfUsedCars from "./components/lists/ListOfUsedCars";
 import ListOfDealerships from "./components/lists/ListOfDealerships";
 import AddCar from "./components/lists/AddCar";
+import EditCar from "./components/lists/EditCar";
 
 function App() {
 
@@ -21,7 +22,7 @@ function App() {
     fetch("http://localhost:9292/cars")
       .then((r) => r.json())
       .then((carsData) => setCars(carsData))
-  }, [])
+  }, [cars])
 
   const handleDeleteCar = (deleteCar) => {
     const updatedListOfCars = cars.filter((car) => car.id !== deleteCar.id);
@@ -35,7 +36,9 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/cars" element={<ListOfUsedCars cars={cars} handleDeleteCar={handleDeleteCar} />} />
         <Route path="/dealerships" element={<ListOfDealerships dealerships={dealerships} />} />
-        <Route path="/addcar" element={<AddCar />} />
+        <Route path="/addCar" element={<AddCar />} />
+        <Route path="/editCar" element={<EditCar />} />
+        
       </Routes>
     </Router>
       

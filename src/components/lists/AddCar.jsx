@@ -21,6 +21,7 @@ const AddCar = () => {
   const [year, setYear] = useState('');
   const [mileage, setMileage] = useState('');
   const [price, setPrice] = useState('');
+  // eslint-disable-next-line
   const [addCarData, setAddCarData] = useState([]);
 
   const handleChangeSelect = (event) => {
@@ -75,7 +76,6 @@ const AddCar = () => {
   const handleChangePrice = (e) => {
     setPrice(e.target.value);
   }
-  console.log(addCarData)
 
   return ( 
     <form onSubmit={handleSubmit}>
