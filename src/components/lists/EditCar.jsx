@@ -68,19 +68,47 @@ const EditCar = ({ editCar }) => {
         <Box sx={{ bgcolor: '#cfe8fc', height: '50vh', m: 4}}>
           <Grid container spacing={2}>
             <Grid item xs={12}>
-              <TextField id="makeModel" onChange={handleEditChange} label="Make and Model" value={editCarFormData.makeModel} />
+              <TextField 
+                id="makeModel" 
+                onChange={handleEditChange} 
+                label="Make and Model" 
+                value={editCarFormData.makeModel} 
+              />
             </Grid>
             <Grid item xs={4}>
-              <TextField id="color" onChange={handleEditChange} label="Color" value={editCarFormData.color} />
+              <TextField 
+                id="color" 
+                onChange={handleEditChange} 
+                label="Color" 
+                value={editCarFormData.color} 
+              />
             </Grid>
             <Grid item xs={4}>
-              <TextField id="year" onChange={handleEditChange} type="number" label="Year" value={editCarFormData.year} />
+              <TextField 
+                id="year" 
+                onChange={handleEditChange} 
+                type="number" 
+                label="Year" 
+                value={editCarFormData.year} 
+              />
             </Grid>
             <Grid item xs={12}>
-              <TextField id="mileage" onChange={handleEditChange} type="number" label="Mileage" value={editCarFormData.mileage} />
+              <TextField 
+                id="mileage" 
+                onChange={handleEditChange} 
+                type="number" 
+                label="Mileage" 
+                value={editCarFormData.mileage} 
+              />
             </Grid>
             <Grid item xs={12}>
-              <TextField id="price" onChange={handleEditChange} type="number" label="Price" value={editCarFormData.price} />
+              <TextField 
+                id="price" 
+                onChange={handleEditChange} 
+                type="number" 
+                label="Price" 
+                value={editCarFormData.price} 
+              />
             </Grid>
             <Grid item xs={12}>
               <FormControl fullWidth>
@@ -89,12 +117,11 @@ const EditCar = ({ editCar }) => {
                   id="selectDealership"
                   onChange={handleEditSelectDealership}
                   label="Select Dealership"
-                  value={editSelectDealership}
-                >
-                <MenuItem value={71}>Buy Used Cars</MenuItem>
-                <MenuItem value={72}>Michael and Milo</MenuItem>
-                <MenuItem value={73}>Cars on Us</MenuItem>
-                <MenuItem value={74}>Best Cars Only</MenuItem>
+                  value={editSelectDealership} >
+                    <MenuItem value={71}>Buy Used Cars</MenuItem>
+                    <MenuItem value={72}>Michael and Milo</MenuItem>
+                    <MenuItem value={73}>Cars on Us</MenuItem>
+                    <MenuItem value={74}>Best Cars Only</MenuItem>
                 </Select>
               </FormControl>
             </Grid>

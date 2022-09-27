@@ -69,19 +69,47 @@ const AddCar = () => {
         <Box sx={{ bgcolor: '#cfe8fc', height: '50vh', m: 4}}>
           <Grid container spacing={2}>
             <Grid item xs={12}>
-              <TextField id="makeModel" onChange={handleChange} value={addCarFormData.makeModel} label="Make and Model" />
+              <TextField 
+                id="makeModel" 
+                onChange={handleChange} 
+                value={addCarFormData.makeModel} 
+                label="Make and Model" 
+              />
             </Grid>
             <Grid item xs={4}>
-              <TextField id="color" onChange={handleChange} value={addCarFormData.color} label="Color" />
+              <TextField 
+                id="color" 
+                onChange={handleChange} 
+                value={addCarFormData.color} 
+                label="Color" 
+              />
             </Grid>
             <Grid item xs={4}>
-              <TextField id="year" type="number" onChange={handleChange} value={addCarFormData.year} label="Year" />
+              <TextField 
+                id="year" 
+                type="number" 
+                onChange={handleChange} 
+                value={addCarFormData.year} 
+                label="Year" 
+              />
             </Grid>
             <Grid item xs={12}>
-              <TextField id="mileage" type="number" onChange={handleChange} value={addCarFormData.mileage} label="Mileage" />
+              <TextField 
+                id="mileage" 
+                type="number" 
+                onChange={handleChange} 
+                value={addCarFormData.mileage} 
+                label="Mileage" 
+              />
             </Grid>
             <Grid item xs={12}>
-              <TextField id="price" type="number" onChange={handleChange} value={addCarFormData.price} label="Price" />
+              <TextField 
+                id="price" 
+                type="number" 
+                onChange={handleChange} 
+                value={addCarFormData.price} 
+                label="Price" 
+              />
             </Grid>
             <Grid item xs={12}>
               <FormControl fullWidth>
@@ -90,12 +118,11 @@ const AddCar = () => {
                   id="selectDealership"
                   value={selectDealership}
                   label="Select Dealership"
-                  onChange={handleChangeDealership}
-                >
-                <MenuItem value={71}>Buy Used Cars</MenuItem>
-                <MenuItem value={72}>Michael and Milo</MenuItem>
-                <MenuItem value={73}>Cars on Us</MenuItem>
-                <MenuItem value={74}>Best Cars Only</MenuItem>
+                  onChange={handleChangeDealership} >
+                    <MenuItem value={71}>Buy Used Cars</MenuItem>
+                    <MenuItem value={72}>Michael and Milo</MenuItem>
+                    <MenuItem value={73}>Cars on Us</MenuItem>
+                    <MenuItem value={74}>Best Cars Only</MenuItem>
                 </Select>
               </FormControl>
             </Grid>
