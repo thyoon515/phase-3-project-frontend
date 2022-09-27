@@ -10,16 +10,19 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import { useNavigate } from 'react-router-dom';
 
-const EditCar = ({editCar}) => {
+const EditCar = ({ editCar }) => {
 
   const navigate = useNavigate();
-  
-  const [editMakeModel, setEditMakeModel] = useState(editCar.make_and_model);
-  const [editColor, setEditColor] = useState(editCar.color);
-  const [editYear, setEditYear] = useState(editCar.year);
-  const [editMileage, setEditMileage] = useState(editCar.mileage);
-  const [editPrice, setEditPrice] = useState(editCar.price);
+
+  const [editCarFormData, setEditCarFormData] = useState({
+    makeModel: editCar.make_and_model,
+    color: editCar.color,
+    year: editCar.year,
+    mileage: editCar.price,
+    price: editCar.price
+  })
   const [editSelectDealership, setEditSelectDealership] = useState(editCar.dealership_id);
+  // eslint-disable-next-line
   const [newEditCarData, setNewEditCarData] = useState([]);
 
   const handleSubmitEdit = (e) => {
@@ -30,11 +33,11 @@ const EditCar = ({editCar}) => {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        make_and_model: editMakeModel,
-        color: editColor,
-        year: editYear,
-        mileage: editMileage,
-        price: editPrice,
+        make_and_model: editCarFormData.makeModel,
+        color: editCarFormData.color,
+        year: editCarFormData.year,
+        mileage: editCarFormData.mileage,
+        price: editCarFormData.price,
         dealership_id: editSelectDealership,
       }),
     })
@@ -43,32 +46,16 @@ const EditCar = ({editCar}) => {
         setNewEditCarData(updateCar)
         navigate('/cars')
       })
-    setEditMakeModel("");
-    setEditColor("");
-    setEditYear("");
-    setEditMileage("");
-    setEditPrice("");
-    setEditSelectDealership("");
+      setEditCarFormData({})
+      setEditSelectDealership("")
     }
 
-  const handleEditMakeModel = (e) => {
-    setEditMakeModel(e.target.value)
-  }
-
-  const handleEditColor = (e) => {
-    setEditColor(e.target.value)
-  }
-
-  const handleEditYear = (e) => {
-    setEditYear(e.target.value)
-  }
-
-  const handleEditMileage = (e) => {
-    setEditMileage(e.taret.value)
-  }
-
-  const handleEditPrice = (e) => {
-    setEditPrice(e.target.value)
+  const handleEditChange = (e) => {
+    const key = e.target.id
+    setEditCarFormData({
+      ...editCarFormData,
+      [key]: e.target.value
+    })
   }
 
   const handleEditSelectDealership = (e) => {
@@ -81,24 +68,25 @@ const EditCar = ({editCar}) => {
         <Box sx={{ bgcolor: '#cfe8fc', height: '50vh', m: 4}}>
           <Grid container spacing={2}>
             <Grid item xs={12}>
-              <TextField onChange={handleEditMakeModel} label="Make and Model" value={editMakeModel} />
+              <TextField id="makeModel" onChange={handleEditChange} label="Make and Model" value={editCarFormData.makeModel} />
             </Grid>
             <Grid item xs={4}>
-              <TextField onChange={handleEditColor} label="Color" value={editColor} />
+              <TextField id="color" onChange={handleEditChange} label="Color" value={editCarFormData.color} />
             </Grid>
             <Grid item xs={4}>
-              <TextField onChange={handleEditYear} type="number" label="Year" value={editYear} />
+              <TextField id="year" onChange={handleEditChange} type="number" label="Year" value={editCarFormData.year} />
             </Grid>
             <Grid item xs={12}>
-              <TextField onChange={handleEditMileage} type="number" label="Mileage" value={editMileage} />
+              <TextField id="mileage" onChange={handleEditChange} type="number" label="Mileage" value={editCarFormData.mileage} />
             </Grid>
             <Grid item xs={12}>
-              <TextField onChange={handleEditPrice} type="number" label="Price" value={editPrice} />
+              <TextField id="price" onChange={handleEditChange} type="number" label="Price" value={editCarFormData.price} />
             </Grid>
             <Grid item xs={12}>
               <FormControl fullWidth>
                 <InputLabel>Select Dealership</InputLabel>
                 <Select
+                  id="selectDealership"
                   onChange={handleEditSelectDealership}
                   label="Select Dealership"
                   value={editSelectDealership}

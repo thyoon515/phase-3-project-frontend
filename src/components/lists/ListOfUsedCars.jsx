@@ -30,13 +30,12 @@ const ListOfUsedCars = ({cars, handleDeleteCar, setEditCar}) => {
 
     const handleClickEditCar = (e) => { 
       setEditCar(car)
-      console.log(car)
     }
 
     return(
     <form onSubmit={handleEditSubmit}>
       <Container maxWidth="sm">
-        <Box sx={{ bgcolor: '#cfe8fc', height: '25vh', m: 4}}>
+        <Box sx={{ bgcolor: '#cfe8fc', height: '23vh', m: 4}}>
           <Card sx={{ minWidth: 275 }}>
             <CardContent>
               <Typography variant="h5" component="div" key={car.id}>

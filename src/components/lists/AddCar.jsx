@@ -15,14 +15,16 @@ const AddCar = () => {
 
   const navigate = useNavigate();
 
-  const [selectDealership, setSelectDealership] = useState('');
-  const [makeModel, setMakeModel] = useState('');
-  const [color, setColor] = useState('');
-  const [year, setYear] = useState('');
-  const [mileage, setMileage] = useState('');
-  const [price, setPrice] = useState('');
+  const [addCarFormData, setAddCarFormData] = useState({
+    makeModel: "",
+    color: "",
+    year: "",
+    mileage: "",
+    price: ""
+  })
+  const [selectDealership, setSelectDealership] = useState("")
   // eslint-disable-next-line
-  const [addCarData, setAddCarData] = useState([]);
+  const [addNewCarData, setAddNewCarData] = useState([]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -32,51 +34,34 @@ const AddCar = () => {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        make_and_model: makeModel,
-        color: color,
-        year: year,
-        mileage: mileage,
-        price: price,
+        make_and_model: addCarFormData.makeModel,
+        color: addCarFormData.color,
+        year: addCarFormData.year,
+        mileage: addCarFormData.mileage,
+        price: addCarFormData.price,
         dealership_id: selectDealership,
       }),
     })
       .then((r) => r.json())
       .then((postNewCar) =>{
-        setAddCarData(postNewCar)
+        setAddNewCarData(postNewCar)
         navigate('/cars')
       })
-    setMakeModel("");
-    setColor("");
-    setYear("");
-    setMileage("");
-    setPrice("");
-    setSelectDealership("");
-  }
-  
-
-  const handleChangeMakeModel = (e) => {
-    setMakeModel(e.target.value);
+    setAddCarFormData({})
+    setSelectDealership("")
   }
 
-  const handleChangeColor = (e) => {
-    setColor(e.target.value);
+  const handleChange = (e) => {
+    const key = e.target.id
+    setAddCarFormData({
+      ...addCarFormData,
+      [key]: e.target.value
+    })
   }
 
-  const handleChangeYear = (e) => {
-    setYear(e.target.value);
+  const handleChangeDealership = (e) => {
+    setSelectDealership(e.target.value)
   }
-
-  const handleChangeMileage = (e) => {
-    setMileage(e.target.value);
-  }
-
-  const handleChangePrice = (e) => {
-    setPrice(e.target.value);
-  }
-
-  const handleChangeSelect = (event) => {
-    setSelectDealership(event.target.value);
-  };
 
   return ( 
     <form onSubmit={handleSubmit}>
@@ -84,27 +69,28 @@ const AddCar = () => {
         <Box sx={{ bgcolor: '#cfe8fc', height: '50vh', m: 4}}>
           <Grid container spacing={2}>
             <Grid item xs={12}>
-              <TextField onChange={handleChangeMakeModel} value={makeModel} label="Make and Model" />
+              <TextField id="makeModel" onChange={handleChange} value={addCarFormData.makeModel} label="Make and Model" />
             </Grid>
             <Grid item xs={4}>
-              <TextField onChange={handleChangeColor} value={color} label="Color" />
+              <TextField id="color" onChange={handleChange} value={addCarFormData.color} label="Color" />
             </Grid>
             <Grid item xs={4}>
-              <TextField type="number" onChange={handleChangeYear} value={year} label="Year" />
+              <TextField id="year" type="number" onChange={handleChange} value={addCarFormData.year} label="Year" />
             </Grid>
             <Grid item xs={12}>
-              <TextField type="number" onChange={handleChangeMileage} value={mileage} label="Mileage" />
+              <TextField id="mileage" type="number" onChange={handleChange} value={addCarFormData.mileage} label="Mileage" />
             </Grid>
             <Grid item xs={12}>
-              <TextField type="number" onChange={handleChangePrice} value={price} label="Price" />
+              <TextField id="price" type="number" onChange={handleChange} value={addCarFormData.price} label="Price" />
             </Grid>
             <Grid item xs={12}>
               <FormControl fullWidth>
                 <InputLabel>Select Dealership</InputLabel>
                 <Select
+                  id="selectDealership"
                   value={selectDealership}
                   label="Select Dealership"
-                  onChange={handleChangeSelect}
+                  onChange={handleChangeDealership}
                 >
                 <MenuItem value={71}>Buy Used Cars</MenuItem>
                 <MenuItem value={72}>Michael and Milo</MenuItem>
