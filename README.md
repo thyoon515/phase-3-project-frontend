@@ -21,8 +21,7 @@ Cars and dealerships have one to many association. Cars belong to a dealership a
 
 ## How To Use
 
-
-
+![](Car4U_Demo.png)
 
 # Getting Started
 

@@ -12,12 +12,6 @@ import { useNavigate } from 'react-router-dom';
 
 const EditCar = ({ editCar, dealerships }) => {
 
-  const displayDealership = dealerships.map((dealership) => {
-    return (
-      <MenuItem key={dealership.id} value={dealership.id}>{dealership.name}</MenuItem>
-    )
-  })
-
   const navigate = useNavigate();
 
   const [editCarFormData, setEditCarFormData] = useState({
@@ -67,6 +61,12 @@ const EditCar = ({ editCar, dealerships }) => {
   const handleEditSelectDealership = (e) => {
     setEditSelectDealership(e.target.value)
   }
+
+  const displayDealership = dealerships.map((dealership) => {
+    return (
+      <MenuItem key={dealership.id} value={dealership.id}>{dealership.name}</MenuItem>
+    )
+  })
 
   return (
     <form onSubmit={handleSubmitEdit}>

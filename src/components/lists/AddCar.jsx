@@ -13,12 +13,6 @@ import { useNavigate } from 'react-router-dom';
 
 const AddCar = ({ dealerships }) => {
 
-  const displayDealership = dealerships.map((dealership) => {
-    return (
-      <MenuItem key={dealership.id} value={dealership.id}>{dealership.name}</MenuItem>
-    )
-  })
-
   const navigate = useNavigate();
 
   const [addCarFormData, setAddCarFormData] = useState({
@@ -68,6 +62,12 @@ const AddCar = ({ dealerships }) => {
   const handleChangeDealership = (e) => {
     setSelectDealership(e.target.value)
   }
+
+  const displayDealership = dealerships.map((dealership) => {
+    return (
+      <MenuItem key={dealership.id} value={dealership.id}>{dealership.name}</MenuItem>
+    )
+  })
 
   return ( 
     <form onSubmit={handleSubmit}>
@@ -139,4 +139,4 @@ const AddCar = ({ dealerships }) => {
   );
 }
 
-export default AddCar
+export default AddCar;
