@@ -13,7 +13,13 @@ Users can:
 3. Edit existing cars in the list (Update).
 4. Delete the car once it is sold (Delete).
 
-# How To Use
+### Model Relationship Diagram
+
+Cars and dealerships have one to many association. Cars belong to a dealership and dealership has many cars.
+
+# ![](Cars_and_dealerships.png)
+
+## How To Use
 
 
 
