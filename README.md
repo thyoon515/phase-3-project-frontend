@@ -4,7 +4,7 @@ Buy or sell used cars through a dealership.
 
 # Description
 
-Car4U is a single page application built with React.jsx and material UI for css on the client side. Ruby with Sinatra and ActiveRecord on the server side. There are 4 main features for the app, which follows CRUD actions.
+Car4U is a single page application built with React.jsx and material UI for css on the client side. Ruby with Sinatra and ActiveRecord on the server side. Existing data were planted within the seed.rb file using faker gem. There are 4 main features for the app, which follows CRUD actions.
 
 Users can:
 
@@ -88,3 +88,10 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `yarn build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+# Credit
+
+- Car4U Banner : [Banner Maker](https://banner.godori.dev)
+- Flatiron School : [FlatironSchool](https://flatironschool.com/)
+- GIF : [Video-to-gif](https://ezgif.com/video-to-gif)
+- Material UI : [MUI](https://mui.com/)
