@@ -37,8 +37,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/cars" element={<ListOfUsedCars cars={cars} handleDeleteCar={handleDeleteCar} setEditCar={setEditCar}/>} />
         <Route path="/dealerships" element={<ListOfDealerships dealerships={dealerships} />} />
-        <Route path="/addCar" element={<AddCar />} />
-        <Route path="/editCar" element={<EditCar editCar={editCar}/>} />
+        <Route path="/addCar" element={<AddCar dealerships={dealerships} />} />
+        <Route path="/editCar" element={<EditCar editCar={editCar} dealerships={dealerships} />} />
         
       </Routes>
     </Router>

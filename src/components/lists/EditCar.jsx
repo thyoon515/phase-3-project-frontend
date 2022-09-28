@@ -10,7 +10,13 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import { useNavigate } from 'react-router-dom';
 
-const EditCar = ({ editCar }) => {
+const EditCar = ({ editCar, dealerships }) => {
+
+  const displayDealership = dealerships.map((dealership) => {
+    return (
+      <MenuItem key={dealership.id} value={dealership.id}>{dealership.name}</MenuItem>
+    )
+  })
 
   const navigate = useNavigate();
 
@@ -118,10 +124,7 @@ const EditCar = ({ editCar }) => {
                   onChange={handleEditSelectDealership}
                   label="Select Dealership"
                   value={editSelectDealership} >
-                    <MenuItem value={71}>Buy Used Cars</MenuItem>
-                    <MenuItem value={72}>Michael and Milo</MenuItem>
-                    <MenuItem value={73}>Cars on Us</MenuItem>
-                    <MenuItem value={74}>Best Cars Only</MenuItem>
+                    {displayDealership}
                 </Select>
               </FormControl>
             </Grid>
