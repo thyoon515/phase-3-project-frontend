@@ -2,6 +2,16 @@
 
 Buy or sell used cars through a dealership.
 
+### Description
+
+Car4U is a single page application built with React.jsx on the client side and Ruby with Sinatra and ActiveRecord on the server side. There are 4 main features for the app, which follows CRUD actions:
+
+1. Users can add used cars which they can sell through a dealership (Create).
+2. Users can access all the lists of all cars and dealerships (Read).
+3. Users can edit existing cars in the list (Update).
+4. Users can delete the car once it is sold (Delete).
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
