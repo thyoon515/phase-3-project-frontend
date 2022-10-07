@@ -6,6 +6,7 @@ import ListOfUsedCars from "./components/lists/ListOfUsedCars";
 import ListOfDealerships from "./components/lists/ListOfDealerships";
 import AddCar from "./components/lists/AddCar";
 import EditCar from "./components/lists/EditCar";
+import AddDealership from "./components/lists/AddDealership";
 
 function App() {
 
@@ -39,6 +40,7 @@ function App() {
         <Route path="/dealerships" element={<ListOfDealerships dealerships={dealerships} />} />
         <Route path="/addCar" element={<AddCar dealerships={dealerships} />} />
         <Route path="/editCar" element={<EditCar editCar={editCar} dealerships={dealerships} />} />
+        <Route path="/addDealership" element={<AddDealership />} />
       </Routes>
     </Router>
       
