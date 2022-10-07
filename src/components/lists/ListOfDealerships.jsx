@@ -7,8 +7,9 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 
+
 const ListOfDealerships = ({dealerships}) => {
-  
+
   const displayDealership = dealerships.map(dealership => {
     return(
     <div>
@@ -20,7 +21,9 @@ const ListOfDealerships = ({dealerships}) => {
               aria-controls="panel1a-content"
               id="panel1a-header"
             >
-              <Typography key={dealership.id}>Dealership ID: {dealership.id} / {dealership.name} / 🤙call for more details : {dealership.contact} or visit us ⬇️</Typography>
+              <Typography key={dealership.id}>
+                Dealership ID: {dealership.id} / {dealership.name} / 🤙call for more details : {dealership.contact} or visit us ⬇️
+              </Typography>
             </AccordionSummary>
             <AccordionDetails>
               <Typography>
@@ -34,7 +37,9 @@ const ListOfDealerships = ({dealerships}) => {
     )
   })
   return (
-    <div>{displayDealership}</div>
+    <div>
+      {displayDealership}
+    </div>
   )
 }
 

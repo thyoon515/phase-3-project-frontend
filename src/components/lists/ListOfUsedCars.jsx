@@ -28,7 +28,7 @@ const ListOfUsedCars = ({cars, handleDeleteCar, setEditCar}) => {
       navigate("/editCar");
     }
 
-    const handleClickEditCar = (e) => { 
+    const handleClickEditCar = () => { 
       setEditCar(car)
     }
 

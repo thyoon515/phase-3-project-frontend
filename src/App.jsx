@@ -39,7 +39,6 @@ function App() {
         <Route path="/dealerships" element={<ListOfDealerships dealerships={dealerships} />} />
         <Route path="/addCar" element={<AddCar dealerships={dealerships} />} />
         <Route path="/editCar" element={<EditCar editCar={editCar} dealerships={dealerships} />} />
-        
       </Routes>
     </Router>
       
