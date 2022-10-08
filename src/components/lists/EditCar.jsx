@@ -10,7 +10,7 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import { useNavigate } from 'react-router-dom';
 
-const EditCar = ({ editCar, dealerships }) => {
+const EditCar = ({ editCar, dealerships, handleEditCar }) => {
 
   const navigate = useNavigate();
 
@@ -22,8 +22,6 @@ const EditCar = ({ editCar, dealerships }) => {
     price: editCar.price
   })
   const [editSelectDealership, setEditSelectDealership] = useState(editCar.dealership_id);
-  // eslint-disable-next-line
-  const [newEditCarData, setNewEditCarData] = useState([]);
 
   const handleSubmitEdit = (e) => {
     e.preventDefault();
@@ -43,7 +41,7 @@ const EditCar = ({ editCar, dealerships }) => {
     })
       .then((r) => r.json())
       .then((updateCar) =>{
-        setNewEditCarData(updateCar)
+        handleEditCar(updateCar)
         navigate('/cars')
       })
       setEditCarFormData({})

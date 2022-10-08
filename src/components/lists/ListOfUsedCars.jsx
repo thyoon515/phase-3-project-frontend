@@ -13,9 +13,14 @@ const ListOfUsedCars = ({cars, handleDeleteCar, setEditCar}) => {
 
   const navigate = useNavigate();
 
+  const handleClickEditCar = (e) => {
+    setEditCar(e.target.value)
+  }
+
   const displayCars = cars.map(car => {
 
-    const handleDelete = () => {
+    const handleDelete = (e) => {
+      
       fetch(`http://localhost:9292/cars/${car.id}`, {
         method: "DELETE",
       })
@@ -26,10 +31,6 @@ const ListOfUsedCars = ({cars, handleDeleteCar, setEditCar}) => {
     const handleEditSubmit = (e) => {
       e.preventDefault();
       navigate("/editCar");
-    }
-
-    const handleClickEditCar = () => { 
-      setEditCar(car)
     }
 
     return(
@@ -51,11 +52,11 @@ const ListOfUsedCars = ({cars, handleDeleteCar, setEditCar}) => {
                 ${car.price}
               </Typography>
               <Typography variant="body2">
-                Dealership ID: {car.dealership_id}
+                Available @ {car.dealership.name}
               </Typography>
             </CardContent>
             <CardActions>
-              <Button size="small" type="submit" onClick={handleClickEditCar}>Edit</Button>
+              <Button value ={car.id} size="small" type="submit" onClick={handleClickEditCar}>Edit</Button>
               <Button size="small" onClick={handleDelete}>Remove Car</Button>
             </CardActions>
           </Card>

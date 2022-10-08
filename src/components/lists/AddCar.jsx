@@ -11,7 +11,7 @@ import Select from '@mui/material/Select';
 import { useNavigate } from 'react-router-dom';
 
 
-const AddCar = ({ dealerships }) => {
+const AddCar = ({ dealerships, handleAddNewCar }) => {
 
   const navigate = useNavigate();
 
@@ -23,8 +23,6 @@ const AddCar = ({ dealerships }) => {
     price: ""
   })
   const [selectDealership, setSelectDealership] = useState("")
-  // eslint-disable-next-line
-  const [addNewCarData, setAddNewCarData] = useState([]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -44,7 +42,7 @@ const AddCar = ({ dealerships }) => {
     })
       .then((r) => r.json())
       .then((postNewCar) =>{
-        setAddNewCarData(postNewCar)
+        handleAddNewCar(postNewCar)
         navigate('/cars')
       })
     setAddCarFormData({})
