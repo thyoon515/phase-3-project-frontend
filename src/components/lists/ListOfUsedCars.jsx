@@ -33,6 +33,8 @@ const ListOfUsedCars = ({cars, handleDeleteCar, setEditCar}) => {
       setEditCar(car)
     }
 
+    const dealershipName = ((car || {}).dealership || {}).name
+
     return(
     <form onSubmit={handleEditSubmit}>
       <Container maxWidth="sm">
@@ -52,7 +54,7 @@ const ListOfUsedCars = ({cars, handleDeleteCar, setEditCar}) => {
                 ${car.price}
               </Typography>
               <Typography variant="body2">
-                Available @ {car.dealership.name}
+                Available @ {dealershipName}
               </Typography>
             </CardContent>
             <CardActions>

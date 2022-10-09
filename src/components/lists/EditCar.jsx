@@ -43,8 +43,8 @@ const EditCar = ({ editCar, dealerships, handleEditCar }) => {
       .then((r) => r.json())
       .then((updateCar) => {
         handleEditCar(updateCar)
-        navigate('/cars')
       })
+      navigate('/cars')
       setEditCarFormData({})
       setEditSelectDealership("")
     }
