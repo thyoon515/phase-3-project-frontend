@@ -12,7 +12,7 @@ function App() {
 
   const [dealerships, setdealerships] = useState([]);
   const [cars, setCars] = useState([]);
-  const [editCarId, setEditCarId] = useState(0);
+  const [editCar, setEditCar] = useState([]);
 
   useEffect(() => {
     fetch("http://localhost:9292/dealerships")
@@ -24,7 +24,7 @@ function App() {
     fetch("http://localhost:9292/cars")
       .then((r) => r.json())
       .then((carsData) => setCars(carsData))
-  }, [])
+  }, [cars])
 
   const handleDeleteCar = (deleteCar) => {
     const updatedListOfCars = cars.filter((car) => car.id !== deleteCar.id);
@@ -51,10 +51,10 @@ function App() {
       <NavBar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/cars" element={<ListOfUsedCars cars={cars} handleDeleteCar={handleDeleteCar} setEditCarId={setEditCarId}/>} />
+        <Route path="/cars" element={<ListOfUsedCars cars={cars} handleDeleteCar={handleDeleteCar} setEditCar={setEditCar}/>} />
         <Route path="/dealerships" element={<ListOfDealerships dealerships={dealerships} />} />
         <Route path="/addCar" element={<AddCar dealerships={dealerships} handleAddNewCar={handleAddNewCar} />} />
-        <Route path="/editCar" element={<EditCar editCarId={editCarId} dealerships={dealerships} handleEditCar={handleEditCar} />} />
+        <Route path="/editCar" element={<EditCar editCar={editCar} dealerships={dealerships} handleEditCar={handleEditCar} />} />
         <Route path="/addDealership" element={<AddDealership />} />
       </Routes>
     </Router>

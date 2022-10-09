@@ -18,8 +18,9 @@ const EditCar = ({ editCar, dealerships, handleEditCar }) => {
     makeModel: editCar.make_and_model,
     color: editCar.color,
     year: editCar.year,
-    mileage: editCar.price,
-    price: editCar.price
+    mileage: editCar.mileage,
+    price: editCar.price,
+    dealership: editCar.dealership
   })
   const [editSelectDealership, setEditSelectDealership] = useState(editCar.dealership_id);
 
@@ -36,11 +37,11 @@ const EditCar = ({ editCar, dealerships, handleEditCar }) => {
         year: editCarFormData.year,
         mileage: editCarFormData.mileage,
         price: editCarFormData.price,
-        dealership_id: editSelectDealership,
+        dealership_id: editSelectDealership
       }),
     })
       .then((r) => r.json())
-      .then((updateCar) =>{
+      .then((updateCar) => {
         handleEditCar(updateCar)
         navigate('/cars')
       })
