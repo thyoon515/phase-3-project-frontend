@@ -28,6 +28,7 @@ Cars and dealerships have one to many association. Cars belong to a dealership a
 ## Fork and Clone
 
 [GitHub Repository Frontend](https://github.com/thyoon515/phase-3-project-frontend)
+\
 [GitHub Repository Backend](https://github.com/thyoon515/phase-3-project-backend)
 
 - Once you are in the GitHub repository click Code button then clone SSH
