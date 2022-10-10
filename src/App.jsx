@@ -18,7 +18,7 @@ function App() {
     fetch("http://localhost:9292/dealerships")
       .then((r) => r.json())
       .then((dealershipsData) => setdealerships(dealershipsData))
-  }, [])
+  }, [dealerships])
 
   useEffect(() => {
     fetch("http://localhost:9292/cars")
