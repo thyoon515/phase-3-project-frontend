@@ -45,7 +45,7 @@ Cars and dealerships have one to many association. Cars belong to a dealership a
 - In your terminal write git clone then paste the cloned SSH
 
 ```console
-$ git clone <Paste cloned SSH>
+~/$ git clone <Paste cloned SSH>
 ```
 
 ## Backend Setup
