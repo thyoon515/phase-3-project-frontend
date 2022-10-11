@@ -55,7 +55,7 @@ Run `bundle install` to install the gems.
 You can start your server with:
 
 ```console
-$ bundle exec rake server
+~/phase-3-project-backend$ bundle exec rake server
 ```
 
 This will run your server on port
@@ -66,8 +66,8 @@ This will run your server on port
 `cd` out of the backend project directory, then `cd` into your frontend to `install` and `start` yarn.
 
 ```console
-$ npm install yarn
-$ yarn start
+~/phase-3-project-frontend$ npm install yarn
+~/phase-3-project-frontend$ yarn start
 ```
 This will run the app in the development mode.
 [http://localhost:3000](http://localhost:3000) to view it in your browser.
